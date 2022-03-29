@@ -63,10 +63,71 @@ element_button_reset.addEventListener('click', function() {
     element_button_control.removeAttribute('disabled', 'disabled')
 
     //cancello la risposta
-    let element_reset = document.querySelector('.risposta');
+    const element_reset = document.querySelector('.risposta');
     element_reset.remove();
 
     //ripristino il testo della risposta
     text = 'Non sei autorizzato'
 
+})
+
+
+/* 
+CONSEGNA
+Gioco dei dadi
+Mostriamo a schermo anche questo gioco
+*/
+
+//Creo una variabile per il testo
+let text_2;
+
+//Prendo i pulsanti
+const element_button_lancia = document.querySelector('.lancia')
+const element_button_refresh = document.querySelector('.refresh')
+
+//prendo il container
+const element_container_dadi = document.querySelector('.container_dadi')
+
+//Scateniamo un evento al click
+element_button_lancia.addEventListener('click', function() {
+
+    //Genero numero random per l'utente e lo mostro
+    const num_utente = Math.floor(Math.random() * 6) + 1;
+
+    //Genero numero random per il computer e lo mostro
+    const num_computer = Math.floor(Math.random() * 6) + 1;
+
+
+    //stabilisco vincitore
+    if (num_utente > num_computer) {
+
+        text_2 = 'Sei il vincitore'
+
+    } else if (num_utente == num_computer) {
+
+        text_2 = 'Avete pareggiato'
+
+    } else {
+
+        text_2 = 'Ritenta hai perso'
+
+    }
+
+    //creo variabile per il testo
+    element_mark_up =
+        `<div class="giocata">
+     <p>Hai lanciato ${num_utente}</p>
+     <p>Il computer ha lanciato ${num_computer}</p>
+     <p>${text_2}</p>
+     </div>`
+
+    //Comunico il risultato
+    element_container_dadi.insertAdjacentHTML('beforeend', element_mark_up)
+
+})
+
+element_button_refresh.addEventListener("click", function() {
+
+    const element_delete = document.querySelector('.giocata')
+    element_delete.remove()
 })

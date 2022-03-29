@@ -8,6 +8,11 @@ body {
     background-color: palegreen;
 }
 
+p {
+    margin-bottom: 0.75rem;
+}
+
+.container_dadi,
 .container {
     width: 80%;
     margin: 2rem auto;
@@ -19,17 +24,16 @@ body {
     margin-bottom: 1rem;
 }
 
-.risposta,
 .richiesta input,
-.control,
-.reset {
+.risposta,
+.giocata,
+.btn {
     border-radius: 5px;
     box-shadow: 0 0 3px 1px white;
     border: 1px solid rgb(175, 184, 238);
 }
 
-.control,
-.reset {
+.btn {
     padding: 0.25rem 1rem;
     background-color: palegoldenrod;
 }
@@ -38,6 +42,7 @@ body {
     padding: 0.25rem 0;
 }
 
+.giocata,
 .risposta {
     background-color: palevioletred;
     color: white;
