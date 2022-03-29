@@ -5,6 +5,7 @@ Chiedi all’utente la sua email,
 controlla che sia nella lista di chi può accedere,
 stampa un messaggio appropriato sull’esito del controllo.
 */
+console.log('MAIL');
 
 //Chiedi all’utente la sua email
 const mail_utente = prompt('Inserisci la tua mail');
@@ -47,6 +48,8 @@ Prima di partire a scrivere codice poniamoci qualche domanda:
 Che ci sia un array da qualche parte? 
 Se dobbiamo confrontare qualcosa che "cosa" ci serve?
 */
+console.log('');
+console.log('GIOCO DEI DADI');
 
 //Genero numero random per l'utente e lo mostro
 const num_utente = Math.floor(Math.random() * 6) + 1;
