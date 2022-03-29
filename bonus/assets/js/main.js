@@ -16,6 +16,9 @@ const mail_autorizzate = ['mario@hotmail.it', 'giuseppe@libero.it', 'alessandro@
 let text, element_risposta;
 text = 'Non sei autorizzato'
 
+//creo la risposta
+element_risposta = `<div class="risposta">${text}</div>`;
+
 //Seleziono il container dove andrò a mettere il risultato
 element_container = document.querySelector('.container')
 
@@ -47,10 +50,9 @@ element_form.addEventListener("submit", function(event) {
 
             //esito positivo
             text = 'OK sei autorizzato';
+            element_risposta = `<div class="risposta bg_green">${text}</div>`;
         }
     }
-    //creo la risposta
-    element_risposta = `<div class="risposta">${text}</div>`;
 
     //stampo a schermo la risposta
     element_container.insertAdjacentHTML("beforeend", element_risposta)
@@ -68,7 +70,7 @@ element_button_reset.addEventListener('click', function() {
 
     //ripristino il testo della risposta
     text = 'Non sei autorizzato'
-
+    element_risposta = `<div class="risposta">${text}</div>`;
 })
 
 
@@ -79,7 +81,7 @@ Mostriamo a schermo anche questo gioco
 */
 
 //Creo una variabile per il testo
-let text_2;
+let text_2, element_mark_up;
 
 //Prendo i pulsanti
 const element_button_lancia = document.querySelector('.lancia')
@@ -90,6 +92,8 @@ const element_container_dadi = document.querySelector('.container_dadi')
 
 //Scateniamo un evento al click
 element_button_lancia.addEventListener('click', function() {
+
+    element_button_lancia.setAttribute('disabled', 'disabled')
 
     //Genero numero random per l'utente e lo mostro
     const num_utente = Math.floor(Math.random() * 6) + 1;
@@ -103,23 +107,37 @@ element_button_lancia.addEventListener('click', function() {
 
         text_2 = 'Sei il vincitore'
 
+        //creo variabile per il mark_up
+        element_mark_up =
+            `<div class="giocata bg_green">
+         <p>Hai lanciato ${num_utente}</p>
+         <p>Il computer ha lanciato ${num_computer}</p>
+         <p>${text_2}</p>
+         </div>`
+
     } else if (num_utente == num_computer) {
 
         text_2 = 'Avete pareggiato'
 
+        element_mark_up =
+            `<div class="giocata bg_blue">
+         <p>Hai lanciato ${num_utente}</p>
+         <p>Il computer ha lanciato ${num_computer}</p>
+         <p>${text_2}</p>
+         </div>`
+
     } else {
 
         text_2 = 'Ritenta hai perso'
+        element_mark_up =
+            `<div class="giocata">
+         <p>Hai lanciato ${num_utente}</p>
+         <p>Il computer ha lanciato ${num_computer}</p>
+         <p>${text_2}</p>
+         </div>`
 
     }
 
-    //creo variabile per il testo
-    element_mark_up =
-        `<div class="giocata">
-     <p>Hai lanciato ${num_utente}</p>
-     <p>Il computer ha lanciato ${num_computer}</p>
-     <p>${text_2}</p>
-     </div>`
 
     //Comunico il risultato
     element_container_dadi.insertAdjacentHTML('beforeend', element_mark_up)
@@ -127,6 +145,8 @@ element_button_lancia.addEventListener('click', function() {
 })
 
 element_button_refresh.addEventListener("click", function() {
+
+    element_button_lancia.removeAttribute('disabled', 'disabled')
 
     const element_delete = document.querySelector('.giocata')
     element_delete.remove()
