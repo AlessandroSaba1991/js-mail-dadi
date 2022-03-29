@@ -14,6 +14,7 @@ const mail_autorizzate = ['mario@hotmail.it', 'giuseppe@libero.it', 'alessandro@
 
 //Creo variabile per stampare messaggio
 let text, element_risposta;
+text = 'Non sei autorizzato'
 
 //Seleziono il container dove andrò a mettere il risultato
 element_container = document.querySelector('.container')
@@ -46,12 +47,7 @@ element_form.addEventListener("submit", function(event) {
 
             //esito positivo
             text = 'OK sei autorizzato';
-        } else {
-
-            //esito negativo
-            text = 'Non puoi entrare';
         }
-
     }
     //creo la risposta
     element_risposta = `<div class="risposta">${text}</div>`;
@@ -67,7 +63,10 @@ element_button_reset.addEventListener('click', function() {
     element_button_control.removeAttribute('disabled', 'disabled')
 
     //cancello la risposta
-    let element_remove = document.querySelector('.risposta');
-    element_remove.remove();
+    let element_reset = document.querySelector('.risposta');
+    element_reset.remove();
+
+    //ripristino il testo della risposta
+    text = 'Non sei autorizzato'
 
 })

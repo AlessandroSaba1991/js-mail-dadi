@@ -15,6 +15,7 @@ const mail_autorizzate = ['mario@hotmail.it', 'giuseppe@libero.it', 'alessandro@
 
 //Creo variabile per stampare messaggio
 let text;
+text = 'Non puoi entrare';
 
 //estrapolo i dati dall'array
 for (let i = 0; i < mail_autorizzate.length; i++) {
@@ -27,10 +28,6 @@ for (let i = 0; i < mail_autorizzate.length; i++) {
 
         //esito positivo
         text = 'OK sei autorizzato';
-    } else {
-
-        //esito negativo
-        text = 'Non puoi entrare';
     }
 
 }
