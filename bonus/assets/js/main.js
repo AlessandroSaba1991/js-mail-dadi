@@ -13,17 +13,23 @@ Usiamo un input e un bottone per inserire la mail e poi mostriamo i risultati in
 const mail_autorizzate = ['mario@hotmail.it', 'giuseppe@libero.it', 'alessandro@gmail.com']
 
 //Creo variabile per stampare messaggio
-let text;
+let text, element_risposta;
 
 //Seleziono il container dove andrò a mettere il risultato
 element_container = document.querySelector('.container')
 
-//selezioniamo il bottone
+//selezioniamo il bottone e il form
 const element_button_control = document.querySelector('.control')
+const element_button_reset = document.querySelector('.reset')
+const element_form = document.querySelector('form')
 
 //al click del bottone facciamogli fare qualcosa
-element_button_control.addEventListener('click', function() {
+element_form.addEventListener("submit", function(event) {
 
+    //non fa ricaricare la pagina
+    event.preventDefault()
+
+    //disabilitiamo il bottone dopo il click
     element_button_control.setAttribute('disabled', 'disabled')
 
     //prendi dall'input la email dell'utente
@@ -47,6 +53,21 @@ element_button_control.addEventListener('click', function() {
         }
 
     }
+    //creo la risposta
+    element_risposta = `<div class="risposta">${text}</div>`;
+
     //stampo a schermo la risposta
-    element_container.insertAdjacentHTML("beforeend", `<div class="risposta">${text}</div>`)
+    element_container.insertAdjacentHTML("beforeend", element_risposta)
+})
+
+//facciamogli fare qualcosa anche a reset
+element_button_reset.addEventListener('click', function() {
+
+    //riabilito il bottone control
+    element_button_control.removeAttribute('disabled', 'disabled')
+
+    //cancello la risposta
+    let element_remove = document.querySelector('.risposta');
+    element_remove.remove();
+
 })

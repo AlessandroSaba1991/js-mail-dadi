@@ -1,0 +1,47 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: palegreen;
+}
+
+.container {
+    width: 80%;
+    margin: 2rem auto;
+    text-align: center;
+}
+
+.title {
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.risposta,
+.richiesta input,
+.control,
+.reset {
+    border-radius: 5px;
+    box-shadow: 0 0 3px 1px white;
+    border: 1px solid rgb(175, 184, 238);
+}
+
+.control,
+.reset {
+    padding: 0.25rem 1rem;
+    background-color: palegoldenrod;
+}
+
+.richiesta input {
+    padding: 0.25rem 0;
+}
+
+.risposta {
+    background-color: palevioletred;
+    color: white;
+    padding: 1rem;
+    margin-top: 1rem;
+    display: inline-block;
+}
